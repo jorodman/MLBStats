@@ -1,0 +1,55 @@
+
+
+<p-dropdown [options]="years" [(ngModel)]="season" (ngModelChange)="seasonChange($event)"></p-dropdown>
+
+<span class="p-buttonset">
+    <button pButton type="button" label="Hitters" (click)="setShowHittingStats(true)"></button>
+    <button pButton type="button" label="Pitchers" (click)="setShowHittingStats(false)"></button>
+</span>
+
+<div *ngIf="hitters || pitchers">
+    <p-table *ngIf="hitters && showHittingStats" [columns]="hittingcols" [value]="hitters" responsiveLayout="scroll">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <ng-container *ngFor="let col of columns">
+                    <th [pSortableColumn]="col.header">
+                        <a (click)="setHitterFilter(col.field)">
+                            {{col.header}}
+                        </a>
+                    </th>
+                </ng-container>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+                <td *ngFor="let col of columns">
+                    <a *ngIf="col.field=='name_display_first_last'" [routerLink]="['/player', rowData.player_id]">{{rowData[col.field]}}</a>
+                    <a *ngIf="col.field!='name_display_first_last'">{{rowData[col.field]}}</a>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+
+    <p-table *ngIf="pitchers && !showHittingStats" [columns]="pitchingcols" [value]="pitchers" responsiveLayout="scroll">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <ng-container *ngFor="let col of columns">
+                    <th [pSortableColumn]="col.header">
+                        <a (click)="setPitcherFilter(col.field)">
+                            {{col.header}}
+                        </a>
+                    </th>
+                </ng-container>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+                <td *ngFor="let col of columns">
+                    <a *ngIf="col.field=='name_display_first_last'" [routerLink]="['/player', rowData.player_id]">{{rowData[col.field]}}</a>
+                    <a *ngIf="col.field!='name_display_first_last'">{{rowData[col.field]}}</a>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
