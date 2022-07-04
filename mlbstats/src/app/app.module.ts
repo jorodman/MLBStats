@@ -22,6 +22,8 @@ import { TabViewModule } from 'primeng/tabview';
 import { Card, CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
+import { TopbarComponent } from './topbar/topbar.component';
+import {AccordionModule} from 'primeng/accordion';
 
 
 
@@ -33,7 +35,8 @@ import { DropdownModule } from 'primeng/dropdown';
     TeamComponent,
     StandingsComponent,
     StatsComponent,
-    HomeComponent
+    HomeComponent,
+    TopbarComponent
   ],
   imports: [
     AppRoutingModule,
@@ -49,6 +52,7 @@ import { DropdownModule } from 'primeng/dropdown';
     TableModule,
     DropdownModule,
     FormsModule,
+    AccordionModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

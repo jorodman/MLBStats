@@ -36,6 +36,7 @@ export class PlayerComponent implements OnInit {
   fetchPlayerDetails(): void {
     this.subscription = this.api.getPlayerDetails(this.id).subscribe((resp) => {
       this.details = resp.player_info.queryResults.row;
+      console.log(this.details);
     });
   }
 

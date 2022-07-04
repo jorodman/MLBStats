@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+.table-link,.table-link:visited {
+   color: black; 
+}
+
+.table-link:hover {
+    text-decoration: none
+}

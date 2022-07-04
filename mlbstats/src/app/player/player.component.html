@@ -1,3 +1,14 @@
-<div>
-    <h1>{{details}}</h1>
-</div>
+    <div class="card" *ngIf="details">
+        <div>
+
+            <h1>{{details.name_display_first_last}}</h1>
+        </div>
+            <p-accordion [multiple]="true">
+                <p-accordionTab header="Player Details" [selected]="true">
+                    Content 1
+                </p-accordionTab>
+                <p-accordionTab header="Player Stats" [selected]="true">
+                    Content 2
+                </p-accordionTab>
+            </p-accordion>
+    </div>

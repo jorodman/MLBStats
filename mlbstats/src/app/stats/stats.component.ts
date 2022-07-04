@@ -13,7 +13,6 @@ export class StatsComponent implements OnInit {
   pitcherFilter: string = "w";
   season: string = "2022";
   years: number[] = [];
-  showHittingStats: boolean = true;
   hitters!: any[];
   pitchers!: any[];
   hittingcols!: any[];
@@ -65,37 +64,27 @@ export class StatsComponent implements OnInit {
   }
 
   update(): void {
-    if(this.showHittingStats)
-    {
       this.api.getHittingLeaders(this.season, this.hitterFilter, '20').pipe(first()).subscribe((data) => {
         this.hitters = data.leader_hitting_repeater.leader_hitting_mux.queryResults.row;
       })
-    }
-    else {
+
       this.api.getPitchingLeaders(this.season, this.pitcherFilter, '20').pipe(first()).subscribe((data) => {
         this.pitchers = data.leader_pitching_repeater.leader_pitching_mux.queryResults.row;
       })
-    }
   }
 
   seasonChange(season: any): void {
     this.update();
   }
 
-  setHitterFilter(filter: string): void {
-    this.hitterFilter = filter;
+  setHitterFilter(evt: any): void {
+    this.hitterFilter = evt.field;
     this.update();
   }
 
-
-  setPitcherFilter(filter: string): void {
-    this.hitterFilter = filter;
+  setPitcherFilter(evt: any): void {
+    this.hitterFilter = evt.field;
     this.update();
-  }
-
-  setShowHittingStats(showHitters: boolean): void {
-    this.showHittingStats = showHitters;
-    this.update()
   }
 
 }

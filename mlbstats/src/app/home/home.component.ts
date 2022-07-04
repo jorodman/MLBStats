@@ -8,27 +8,9 @@ import {MenuItem} from 'primeng/api';
 })
 export class HomeComponent implements OnInit {
   
-  items!: MenuItem[];
-
-
   constructor() { }
 
   ngOnInit(): void {
-    this.items = [
-            {
-                label:'Home',
-                routerLink: ['/home'],
-                icon:'pi pi-fw pi-home'
-            },
-            {
-                label:'Standings',
-                routerLink: ['/standings']
-            },
-            {
-                label:'Stats',
-                routerLink: ['/stats']
-            },
-        ];
   }
 
 }

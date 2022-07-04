@@ -384,7 +384,6 @@ wo: "3"
 xbh: "72"
    */
   getHittingLeaders(year: string, category: string, numresults: string): Observable<any> {
-    // let url: string = `${this.baseurl}/named.leader_hitting_repeater.bam?sport_code='mlb'&results=${numresults}&game_type='R'&season='${year}'&sort_column='${category}'&leader_hitting_repeater.col_in=${category}&leader_hitting_repeater.col_in=name_display_first_last`;
     let url = `${this.baseurl}/named.leader_hitting_repeater.bam?sport_code='mlb'&results=${numresults}&game_type='R'&season='${year}'&sort_column='${category}'`;
     return this.http.get(url);
   }
