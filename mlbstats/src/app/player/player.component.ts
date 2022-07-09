@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { first } from 'rxjs';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -10,17 +10,51 @@ import { ApiService } from '../api.service';
 })
 export class PlayerComponent implements OnInit {
 
-  id!: string;
+  player_id!: string;
   details!: any;
-  subscription!: Subscription;
+  stats!: any[];
+  isHitter!: boolean;
+  imgSrc!: string;
+
+  hittingcols!: any;
+  pitchingcols!: any;
 
   constructor(
     private route: ActivatedRoute,
     private api: ApiService
-  ) { }
+  ) { 
+    
+    this.hittingcols = [
+      { field: 'season', header: 'Season'},
+      { field: 'team_abbrev', header: 'Team'},
+      { field: 'r', header: 'Runs'},
+      { field: 'h', header: 'Hits'},
+      { field: 'hr', header: 'HR'},
+      { field: 'rbi', header: 'RBI'},
+      { field: 'sb', header: 'SB'},
+      { field: 'avg', header: 'AVG'},
+      { field: 'obp', header: 'OBP'},
+      { field: 'slg', header: 'SLG'},
+      { field: 'ops', header: 'OPS'},
+      { field: 'babip', header: 'BaBip'},
+    ];
 
-  ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
+    this.pitchingcols = [
+      { field: 'season', header: 'Season'},
+      { field: 'team_abbrev', header: 'Team'},
+      { field: 'w', header: 'Wins'},
+      { field: 'l', header: 'Losses'},
+      { field: 'era', header: 'ERA'},
+      { field: 'g', header: 'G'},
+      { field: 'gs', header: 'GS'},
+      { field: 'ip', header: 'IP'},
+      { field: 'er', header: 'ER'},
+      { field: 'bb', header: 'BB'},
+      { field: 'so', header: 'SO'},
+      { field: 'whip', header: 'WHIP'},
+    ];
+
+    this.stats = [];
   }
 
   ngOnInit(): void {
@@ -28,16 +62,44 @@ export class PlayerComponent implements OnInit {
 
     if(id)
     {
-      this.id = id;
-      this.fetchPlayerDetails();
+      this.player_id = id;
+      this.fetchPlayerInfo();
     }
   }
 
-  fetchPlayerDetails(): void {
-    this.subscription = this.api.getPlayerDetails(this.id).subscribe((resp) => {
+  fetchPlayerInfo(): void {
+    this.api.getPlayerDetails(this.player_id).pipe(first()).subscribe((resp) => {
       this.details = resp.player_info.queryResults.row;
-      console.log(this.details);
+
+      this.details.team_abbrev = 'nyy';
+      this.imgSrc = `assets/${this.details.team_abbrev}.png`;
+
+      const debut = new Date(this.details.pro_debut_date).getFullYear();
+      this.isHitter = this.details.primary_stat_type === "hitting";
+      this.fetchPlayerStats(debut, this.isHitter);
     });
   }
+
+  fetchPlayerStats(firstYear: number, isHitter: boolean): void {
+
+    const curr_year = Number(new Date().getFullYear());
+
+    for(let year = curr_year; year >= firstYear; year--)
+    {
+        if(isHitter)
+        {
+            this.api.getPlayerHittingStats(this.player_id, String(year)).pipe(first()).subscribe((resp) => {
+              this.stats.push(resp.sport_hitting_tm.queryResults.row);
+            });
+        }
+        else
+        {
+            this.api.getPlayerHittingStats(this.player_id, String(year)).pipe(first()).subscribe((resp) => {
+              this.stats.push(resp.sport_hitting_tm.queryResults.row);
+            });
+        }
+    }
+  }
+
 
 }
