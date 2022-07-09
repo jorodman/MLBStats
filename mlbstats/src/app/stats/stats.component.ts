@@ -64,13 +64,19 @@ export class StatsComponent implements OnInit {
   }
 
   update(): void {
+
+    if(this.hitterFilter)
+    {
       this.api.getHittingLeaders(this.season, this.hitterFilter, '20').pipe(first()).subscribe((data) => {
         this.hitters = data.leader_hitting_repeater.leader_hitting_mux.queryResults.row;
       })
-
+    }
+    if(this.pitcherFilter)
+    {
       this.api.getPitchingLeaders(this.season, this.pitcherFilter, '20').pipe(first()).subscribe((data) => {
         this.pitchers = data.leader_pitching_repeater.leader_pitching_mux.queryResults.row;
       })
+    }
   }
 
   seasonChange(season: any): void {
@@ -83,7 +89,7 @@ export class StatsComponent implements OnInit {
   }
 
   setPitcherFilter(evt: any): void {
-    this.hitterFilter = evt.field;
+    this.pitcherFilter = evt.field;
     this.update();
   }
 

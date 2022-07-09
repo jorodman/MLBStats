@@ -17,7 +17,6 @@ export class TopbarComponent implements OnInit {
             {
                 label:'Home',
                 routerLink: ['/home'],
-                icon:'pi pi-fw pi-home'
             },
             {
                 label:'Teams',

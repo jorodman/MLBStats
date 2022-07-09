@@ -473,6 +473,7 @@ wp: "5"
 wpct: ".688"
    */
   getPitchingLeaders(year: string, category: string, numresults: string): Observable<any> {
+    console.log(category)
     let url = `${this.baseurl}/named.leader_pitching_repeater.bam?sport_code='mlb'&results=${numresults}&game_type='R'&season='${year}'&sort_column='${category}'`;
     return this.http.get(url);
   }

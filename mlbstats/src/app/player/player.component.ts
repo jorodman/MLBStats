@@ -73,7 +73,6 @@ export class PlayerComponent implements OnInit {
 
       const lowercase = this.details.team_abbrev.toLowerCase();
       this.imgSrc = `assets/${lowercase}.png`;
-      console.log(this.imgSrc)
 
       const debut = new Date(this.details.pro_debut_date).getFullYear();
       this.isHitter = this.details.primary_stat_type === "hitting";

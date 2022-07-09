@@ -2,11 +2,11 @@
     <div class="card">
         <p-menubar [model]="items">
             <ng-template pTemplate="start">
-                <!-- <img src="assets/showcase/images/primeng.svg" height="40" class="mr-2"> -->
+                <a [routerLink]="['home']"><img src="assets/mlb.png" height="40" class="mr-2"></a>
             </ng-template>
-            <ng-template pTemplate="end">
+            <!-- <ng-template pTemplate="end">
                 <input type="text" pInputText placeholder="Player search">
-            </ng-template>
+            </ng-template> -->
         </p-menubar>
     </div>
 </div>
