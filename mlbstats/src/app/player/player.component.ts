@@ -71,8 +71,9 @@ export class PlayerComponent implements OnInit {
     this.api.getPlayerDetails(this.player_id).pipe(first()).subscribe((resp) => {
       this.details = resp.player_info.queryResults.row;
 
-      this.details.team_abbrev = 'nyy';
-      this.imgSrc = `assets/${this.details.team_abbrev}.png`;
+      const lowercase = this.details.team_abbrev.toLowerCase();
+      this.imgSrc = `assets/${lowercase}.png`;
+      console.log(this.imgSrc)
 
       const debut = new Date(this.details.pro_debut_date).getFullYear();
       this.isHitter = this.details.primary_stat_type === "hitting";
