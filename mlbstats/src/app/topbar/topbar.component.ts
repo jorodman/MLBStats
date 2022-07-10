@@ -18,10 +18,10 @@ export class TopbarComponent implements OnInit {
                 label:'Home',
                 routerLink: ['/home'],
             },
-            {
-                label:'Teams',
-                routerLink: ['/standings']
-            },
+            // {
+            //     label:'Teams',
+            //     routerLink: ['/standings']
+            // },
             {
                 label:'Sortable Stats',
                 routerLink: ['/stats']

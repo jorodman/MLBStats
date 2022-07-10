@@ -8,10 +8,17 @@ import { Observable } from 'rxjs';
 export class ApiService {
 
   baseurl: string = 'https://lookup-service-prod.mlb.com/json';
+  backendurl: string = 'http://127.0.0.1:8000';
 
   constructor(
     private http: HttpClient
   ) { }
+
+  getArticles(): Observable<any>
+  {
+    const url: string = `${this.backendurl}/articles`;
+    return this.http.get(url); 
+  }
  
   // team_all_season.queryResults.row
   /*

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuItem} from 'primeng/api';
+import { ApiService } from '../api.service';
+import { first } from 'rxjs'
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,18 @@ import {MenuItem} from 'primeng/api';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  articles: any;
   
-  constructor() { }
+  constructor(
+    private api: ApiService
+  ) { }
 
   ngOnInit(): void {
+    this.api.getArticles().pipe(first()).subscribe((articles: any) => {
+      this.articles = articles;
+      console.log(articles);
+    })
   }
 
 }
