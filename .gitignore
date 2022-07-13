@@ -1,5 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# Python
+*/__pycache__/*
+
 # vscode
 .vscode/*
 !.vscode/settings.json
@@ -15,13 +18,13 @@
 *.vsix
 
 # Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+*/dist
+*/tmp
+*/out-tsc
+*/bazel-out
 
 # Node
-/node_modules
+*/node_modules
 npm-debug.log
 yarn-error.log
 
@@ -43,7 +46,7 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-/.angular/cache
+*/.angular/cache
 .sass-cache/
 /connect.lock
 /coverage
