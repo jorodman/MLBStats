@@ -8,7 +8,7 @@ from . import services
 
 def get_articles(request: HttpRequest) -> HttpResponse:
     print(request.build_absolute_uri())
-    # articles = services.get_articles()
-    articles = {"articles": "articles"}
+    articles = services.get_articles()
+    # articles = {"articles": "articles"}
     resp_data = json.dumps(articles)
     return HttpResponse(resp_data, "application/json")
