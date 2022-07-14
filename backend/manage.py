@@ -8,8 +8,10 @@ def main():
     """Run administrative tasks."""
 
     prod = os.environ.get('prod')
+    print(prod)
 
-    if prod:
+    if prod == 1:
+        print("its prod")
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.prod_settings')
     else:
         os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.dev_settings')
