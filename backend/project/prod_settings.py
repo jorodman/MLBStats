@@ -24,10 +24,11 @@ SECRET_KEY = os.environ.get('secret')
 
 # Production settings
 DEBUG = False
-ALLOWED_HOSTS = [
-    'ec2-3-133-82-245.us-east-2.compute.amazonaws.com',
-    'ec2-3-133-82-245.us-east-2.compute.amazonaws.com:8000',
-    ]
+ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = [
+#     'ec2-3-133-82-245.us-east-2.compute.amazonaws.com',
+#     'ec2-3-133-82-245.us-east-2.compute.amazonaws.com:8000',
+#     ]
 # CORS_ALLOWED_ORIGINS = []
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
