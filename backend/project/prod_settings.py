@@ -30,6 +30,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '172.31.31.228',
     '18.218.230.112',
+    'ec2-18-218-230-112.us-east-2.compute.amazonaws.com'
     ]
 # CORS_ALLOWED_ORIGINS = []
 CSRF_COOKIE_SECURE = True
