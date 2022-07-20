@@ -26,6 +26,8 @@ SECRET_KEY = os.environ.get('secret')
 DEBUG = False
 ALLOWED_HOSTS = ["*"]
 ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
     '172.31.31.228',
     '18.218.230.112',
     ]
