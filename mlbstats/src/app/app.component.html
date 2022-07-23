@@ -1,8 +1,23 @@
-<app-topbar></app-topbar>
-<router-outlet></router-outlet>
-<footer class="bg-light text-center text-lg-start">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2020 Copyright: Joseph Rodman
-    <a class="text-dark table-link" href="https://josephrodman.com/" target="_blank">josephrodman.com</a>
+
+<!-- The outermost div to try to style -->
+<div class="flex flex-column h-full w-full">
+  
+  <div class="flex-none">
+    <app-topbar></app-topbar>
   </div>
-</footer>
+
+  <div class="bg-gray-200 flex-grow-1">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="flex-none">
+    <footer class="">
+      <div class="text-center p-3 p-component">
+        © 2020 Copyright: Joseph Rodman
+        <a class="text-dark table-link text-color" href="https://josephrodman.com/" target="_blank">josephrodman.com</a>
+      </div>
+    </footer>
+
+  </div>
+
+</div>

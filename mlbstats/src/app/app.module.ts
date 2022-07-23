@@ -24,6 +24,7 @@ import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
 import { TopbarComponent } from './topbar/topbar.component';
 import {AccordionModule} from 'primeng/accordion';
+import {PanelModule} from 'primeng/panel';
 
 
 
@@ -53,6 +54,7 @@ import {AccordionModule} from 'primeng/accordion';
     DropdownModule,
     FormsModule,
     AccordionModule,
+    PanelModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

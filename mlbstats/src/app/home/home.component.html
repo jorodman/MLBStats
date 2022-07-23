@@ -1,10 +1,27 @@
-<div class="container-fluid my-3">
-    <h4>Red Sox News</h4>
-    <ul class="list-group" *ngIf="articles">
-        <li class="list-group-item" *ngFor="let article of articles">
-            <a class="table-link" [href]="article.href" target="_blank">
-                {{article.title}}
-            </a>
-        </li>
-    </ul>
+
+<div class="p-3">
+    <p-panel header="Red Sox News">
+
+        <div *ngIf="loadingArticles">
+            <p class="">Fetching latest news...</p>
+        </div>
+
+        <div *ngIf="articles" class="flex flex-row flex-wrap">
+            <div *ngFor="let group of articles" class="w-6 p-2">
+                <p-panel styleClass="p-card-shadow w-full">
+                    <ng-template pTemplate="header">
+                        <a [href]="group.url" target="_blank" class="text-md no-underline text-color">{{group.domain}}</a>
+                    </ng-template>
+                    <ul class="list-disc px-3 py-1">
+                        <li class="line-height-3" *ngFor="let article of group.articles">
+                            <a class="table-link text-color" [href]="article.href" target="_blank">
+                                {{article.title}}
+                            </a>
+                        </li>
+                    </ul>
+                </p-panel>
+            </div>
+        </div>
+
+    </p-panel>
 </div>

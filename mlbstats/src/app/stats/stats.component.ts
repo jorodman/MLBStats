@@ -17,6 +17,8 @@ export class StatsComponent implements OnInit {
   pitchers!: any[];
   hittingcols!: any[];
   pitchingcols!: any[];
+  loadingHittingStats: boolean = true;
+  loadingPitchingStats: boolean = true;
 
 
   constructor(
@@ -69,13 +71,21 @@ export class StatsComponent implements OnInit {
     {
       this.api.getHittingLeaders(this.season, this.hitterFilter, '20').pipe(first()).subscribe((data) => {
         this.hitters = data.leader_hitting_repeater.leader_hitting_mux.queryResults.row;
+        this.loadingHittingStats = false;
+      },
+      () => {
+        this.loadingHittingStats = false;
       })
     }
     if(this.pitcherFilter)
     {
       this.api.getPitchingLeaders(this.season, this.pitcherFilter, '20').pipe(first()).subscribe((data) => {
         this.pitchers = data.leader_pitching_repeater.leader_pitching_mux.queryResults.row;
-      })
+        this.loadingPitchingStats = false;
+      },
+      () => {
+        this.loadingPitchingStats = false;
+      });
     }
   }
 

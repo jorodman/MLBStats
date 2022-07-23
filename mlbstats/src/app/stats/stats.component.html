@@ -1,11 +1,15 @@
 
-<div class="container-fluid">
+<div class="p-3">
 
-    <div class="flex flex-wrap align-items-center justify-content-left card-container">
-        <p-dropdown class="mt-3 mb-1" [options]="years" [(ngModel)]="season" (ngModelChange)="seasonChange($event)"></p-dropdown>
+    <div class="card-container pb-3">
+        <p-dropdown class="" [options]="years" [(ngModel)]="season" (ngModelChange)="seasonChange($event)"></p-dropdown>
     </div>
+
     <p-tabView>
         <p-tabPanel header="Hitting">
+            <h4 *ngIf="loadingHittingStats">
+                Loading hitting stats...
+            </h4>
             <p-table *ngIf="hitters" [columns]="hittingcols" [value]="hitters" responsiveLayout="scroll" (sortFunction)="setHitterFilter($event)" [customSort]="true">
                 <ng-template pTemplate="header" let-columns>
                     <tr>
@@ -19,7 +23,7 @@
                 <ng-template pTemplate="body" let-rowData let-columns="columns">
                     <tr>
                         <td *ngFor="let col of columns">
-                            <a *ngIf="col.field=='name_display_first_last'" [routerLink]="['/player', rowData.player_id]" class="table-link">{{rowData[col.field]}}</a>
+                            <a *ngIf="col.field=='name_display_first_last'" [routerLink]="['/player', rowData.player_id]" class="table-link text-color">{{rowData[col.field]}}</a>
                             <span *ngIf="col.field!='name_display_first_last'">{{rowData[col.field]}}</span>
                         </td>
                     </tr>
@@ -31,6 +35,9 @@
         <p-tabPanel header="Pitching">
 
             <p-table *ngIf="pitchers" [columns]="pitchingcols" [value]="pitchers" responsiveLayout="scroll" (sortFunction)="setPitcherFilter($event)" [customSort]="true">
+                <h4 *ngIf="loadingPitchingStats">
+                    Loading pitching stats...
+                </h4>
                 <ng-template pTemplate="header" let-columns>
                     <tr>
                         <ng-container *ngFor="let col of columns">
@@ -43,7 +50,7 @@
                 <ng-template pTemplate="body" let-rowData let-columns="columns">
                     <tr>
                         <td *ngFor="let col of columns">
-                            <a *ngIf="col.field=='name_display_first_last'" [routerLink]="['/player', rowData.player_id]" class="table-link">{{rowData[col.field]}}</a>
+                            <a *ngIf="col.field=='name_display_first_last'" [routerLink]="['/player', rowData.player_id]" class="table-link text-color">{{rowData[col.field]}}</a>
                             <span *ngIf="col.field!='name_display_first_last'">{{rowData[col.field]}}</span>
                         </td>
                     </tr>

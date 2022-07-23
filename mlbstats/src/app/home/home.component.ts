@@ -10,16 +10,30 @@ import { first } from 'rxjs'
 export class HomeComponent implements OnInit {
 
   articles: any;
+  loadingArticles: boolean = true;
   
   constructor(
     private api: ApiService
   ) { }
 
   ngOnInit(): void {
+    if(!this.articles)
+    {
+      this.update()
+    }
+  }
+
+  update(): void {
+
+    this.loadingArticles = true;
+
     this.api.getArticles().pipe(first()).subscribe((articles: any) => {
       this.articles = articles;
-      console.log(articles);
-    })
+      this.loadingArticles = false;
+    },
+    () =>  { 
+      this.loadingArticles = false 
+    });
   }
 
 }
