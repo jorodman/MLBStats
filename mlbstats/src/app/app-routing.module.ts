@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { PlayerComponent } from './player/player.component';
-import { StandingsComponent } from './standings/standings.component';
-import { StatsComponent } from './stats/stats.component';
-import { TeamComponent } from './team/team.component';
+import { HomeComponent } from './components/home/home.component';
+import { PlayerComponent } from './components/player/player.component';
+import { StandingsComponent } from './components/standings/standings.component';
+import { StatsComponent } from './components/stats/stats.component';
+import { TeamComponent } from './components/team/team.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},

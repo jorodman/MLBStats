@@ -8,12 +8,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ApiService } from './api.service';
-import { PlayerComponent } from './player/player.component';
-import { TeamComponent } from './team/team.component';
-import { StandingsComponent } from './standings/standings.component';
-import { StatsComponent } from './stats/stats.component';
-import { HomeComponent } from './home/home.component';
+import { ApiService } from './services/api.service';
+import { PlayerComponent } from './components/player/player.component';
+import { TeamComponent } from './components/team/team.component';
+import { StandingsComponent } from './components/standings/standings.component';
+import { StatsComponent } from './components/stats/stats.component';
+import { HomeComponent } from './components/home/home.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
 
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
@@ -22,9 +23,9 @@ import { TabViewModule } from 'primeng/tabview';
 import { Card, CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
-import { TopbarComponent } from './topbar/topbar.component';
 import {AccordionModule} from 'primeng/accordion';
 import {PanelModule} from 'primeng/panel';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 
 
@@ -55,6 +56,7 @@ import {PanelModule} from 'primeng/panel';
     FormsModule,
     AccordionModule,
     PanelModule,
+    ProgressSpinnerModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
