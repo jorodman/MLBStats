@@ -95,7 +95,6 @@ def get_fastcast():
     if all_links and all_links[0] and all_links[0].get('href'):
         relative_path = all_links[0].get('href')
         absolute_path = mlb_base_url + relative_path
-        print(absolute_path)
         return absolute_path
 
 

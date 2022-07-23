@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api/menuitem';
+import { first } from 'rxjs/operators';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-topbar',
@@ -9,8 +11,11 @@ import { MenuItem } from 'primeng/api/menuitem';
 export class TopbarComponent implements OnInit {
 
   items!: MenuItem[];
+  fastcastUrl!: string;
 
-  constructor() { }
+  constructor(
+    private api: ApiService
+  ) { }
 
   ngOnInit(): void {
     this.items = [
@@ -27,5 +32,10 @@ export class TopbarComponent implements OnInit {
                 routerLink: ['/stats']
             },
         ];
+
+      this.api.getFastcastUrl().pipe(first()).subscribe((url: string) => {
+        console.log(url)
+        this.fastcastUrl = url;
+      });
   }
 }

@@ -19,6 +19,12 @@ export class ApiService {
     const url: string = `${this.backendurl}/articles`;
     return this.http.get(url); 
   }
+
+  getFastcastUrl(): Observable<any>
+  {
+    const url: string = `${this.backendurl}/fastcast`;
+    return this.http.get(url); 
+  }
  
   // team_all_season.queryResults.row
   /*

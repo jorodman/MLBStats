@@ -4,9 +4,9 @@
             <ng-template pTemplate="start">
                 <a [routerLink]="['home']" class="pl-3"><img src="assets/mlb.png" height="40" class="mr-2"></a>
             </ng-template>
-            <!-- <ng-template pTemplate="end">
-                <input type="text" pInputText placeholder="Player search">
-            </ng-template> -->
+            <ng-template pTemplate="end" >
+                <a [href]="fastcastUrl" target="_blank" class="px-3 text-color table-link">MLB.com fastcast</a>
+            </ng-template>
         </p-menubar>
     </div>
 </div>

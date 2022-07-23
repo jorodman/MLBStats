@@ -20,4 +20,5 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('articles/', views.get_articles),
+    path('fastcast/', views.get_fastcast_url),
 ]
