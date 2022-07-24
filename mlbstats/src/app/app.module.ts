@@ -27,6 +27,7 @@ import {AccordionModule} from 'primeng/accordion';
 import {PanelModule} from 'primeng/panel';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { PlayerstatsComponent } from './components/playerstats/playerstats.component';
+import { SortablestatsComponent } from './components/sortablestats/sortablestats.component';
 
 
 
@@ -40,7 +41,8 @@ import { PlayerstatsComponent } from './components/playerstats/playerstats.compo
     StatsComponent,
     HomeComponent,
     TopbarComponent,
-    PlayerstatsComponent
+    PlayerstatsComponent,
+    SortablestatsComponent
   ],
   imports: [
     AppRoutingModule,
