@@ -144,6 +144,6 @@ def filter_articles(articles):
     # sort by score
     filtered = sorted(filtered, key=itemgetter('score'), reverse=True)
 
-    return filtered[:6]
+    return articles[:6]
 
 
