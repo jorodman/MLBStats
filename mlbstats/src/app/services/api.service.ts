@@ -7,12 +7,25 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  baseurl: string = 'https://lookup-service-prod.mlb.com/json';
-  backendurl: string = 'http://127.0.0.1:8000';
+  baseurl!: string;
+  backendurl!: string;
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) 
+  { 
+    this.baseurl = 'https://lookup-service-prod.mlb.com/json';
+
+    const prod = true;
+
+    if(prod)
+    {
+      this.backendurl = 'http://ec2-18-218-230-112.us-east-2.compute.amazonaws.com:8000'
+    }
+    else {
+      this.backendurl = 'http://127.0.0.1:8000';
+    }
+  }
 
   getArticles(): Observable<any>
   {
