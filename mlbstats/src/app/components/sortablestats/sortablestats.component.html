@@ -11,7 +11,7 @@
     <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr>
             <td *ngFor="let col of columns">
-                <a *ngIf="col.field=='name_display_first_last'" [routerLink]="['/player', rowData.player_id]" class="table-link text-color">{{rowData[col.field]}}</a>
+                <a *ngIf="col.field=='name_display_first_last'" [routerLink]="['/player', rowData.player_id]" class="table-link text-color" onMouseOut="this.style.textDecoration='underline'" onMouseOver="this.style.textDecoration='none'">{{rowData[col.field]}}</a>
                 <span *ngIf="col.field!='name_display_first_last'">{{rowData[col.field]}}</span>
             </td>
         </tr>

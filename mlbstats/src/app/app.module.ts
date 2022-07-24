@@ -28,6 +28,7 @@ import {AccordionModule} from 'primeng/accordion';
 import {PanelModule} from 'primeng/panel';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {CheckboxModule} from 'primeng/checkbox';
+import {ProgressBarModule} from 'primeng/progressbar';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import {CheckboxModule} from 'primeng/checkbox';
     PanelModule,
     ProgressSpinnerModule,
     CheckboxModule,
+    ProgressBarModule,
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

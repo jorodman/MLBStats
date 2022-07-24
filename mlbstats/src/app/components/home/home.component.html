@@ -1,23 +1,22 @@
 
 <div class="p-3">
-    <p-panel>
-        <ng-template pTemplate="header">
-            Red Sox News
-        </ng-template>
+        <div class="flex p-3 ">
+            <h1 class="p-component text-4xl text-color">Latest Red Sox News</h1>
 
-        <div *ngIf="loadingArticles">
-            <p class="">Fetching latest news...</p>
+        </div>
+        <div class="p-3" *ngIf="loadingArticles">
+            <p-progressBar [mode]="loadingArticles ? 'indeterminate' : 'determinate'" [style]="{'height': '6px'}"></p-progressBar>
         </div>
 
         <div *ngIf="articles" class="flex flex-row flex-wrap">
-            <div *ngFor="let group of articles" class="w-6 p-2">
+            <div *ngFor="let group of articles" class="w-6 p-1">
                 <p-panel styleClass="p-card-shadow w-full">
                     <ng-template pTemplate="header">
                         <a [href]="group.url" target="_blank" class="text-md no-underline text-color">{{group.domain}}</a>
                     </ng-template>
                     <ul class="list-disc px-3 py-1">
                         <li class="line-height-3" *ngFor="let article of group.articles">
-                            <a class="table-link text-color" [href]="article.href" target="_blank">
+                            <a class="table-link text-color" onMouseOut="this.style.textDecoration='underline'" onMouseOver="this.style.textDecoration='none'" [href]="article.href" target="_blank">
                                 {{article.title}}
                             </a>
                         </li>
@@ -26,5 +25,4 @@
             </div>
         </div>
 
-    </p-panel>
 </div>

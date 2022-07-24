@@ -1,10 +1,5 @@
 
 <div class="p-3">
-
-    <div class="card-container pb-3">
-        <p-dropdown class="" [options]="years" [(ngModel)]="season" (ngModelChange)="seasonChange($event)"></p-dropdown>
-    </div>
-
     <p-tabView>
         <p-tabPanel header="Hitting">
             <app-sortablestats [cols]="hittingcols" [players]="hitters" (filter)="setHitterFilter($event)" [isCustomSort]="true">

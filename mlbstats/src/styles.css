@@ -1,7 +1,7 @@
-@import "../node_modules/primeng/resources/themes/lara-dark-indigo/theme.css"; 👈
+@import "../node_modules/primeng/resources/themes/lara-dark-blue/theme.css"; 👈
 
 .table-link:hover {
-    text-decoration: none
+    text-decoration: none !important;
 }
 
 ::-webkit-scrollbar {
