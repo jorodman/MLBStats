@@ -26,13 +26,16 @@ SECRET_KEY = os.environ.get('secret')
 DEBUG = False
 ALLOWED_HOSTS = ["*"]
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost',
+    # '127.0.0.1',
+    # 'localhost',
     '172.31.31.228',
     '18.218.230.112',
-    'ec2-18-218-230-112.us-east-2.compute.amazonaws.com'
+    'ec2-18-218-230-112.us-east-2.compute.amazonaws.com',
+    '3.22.56.148'
     ]
-# CORS_ALLOWED_ORIGINS = []
+CORS_ALLOWED_ORIGINS = [
+    'http://mlbstats.s3-website.us-east-2.amazonaws.com'
+    ]
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 CORS_ALLOW_METHODS = ['GET']
