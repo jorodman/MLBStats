@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { first, pipe } from 'rxjs';
-import { ApiService } from '../../services/api.service';
+import { ApiService } from '@services/api.service';
 
 @Component({
   selector: 'app-standings',

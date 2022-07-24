@@ -8,13 +8,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ApiService } from './services/api.service';
-import { PlayerComponent } from './components/player/player.component';
-import { TeamComponent } from './components/team/team.component';
-import { StandingsComponent } from './components/standings/standings.component';
-import { StatsComponent } from './components/stats/stats.component';
-import { HomeComponent } from './components/home/home.component';
-import { TopbarComponent } from './components/topbar/topbar.component';
+import { ApiService } from '@services/api.service';
+import { PlayerComponent } from '@components/player/player.component';
+import { TeamComponent } from '@components/team/team.component';
+import { StandingsComponent } from '@components/standings/standings.component';
+import { StatsComponent } from '@components/stats/stats.component';
+import { HomeComponent } from '@components/home/home.component';
+import { TopbarComponent } from '@components/topbar/topbar.component';
 
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';

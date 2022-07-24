@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ApiService } from '../../services/api.service';
+import { ApiService } from '@services/api.service';
 
 @Component({
   selector: 'app-team',
