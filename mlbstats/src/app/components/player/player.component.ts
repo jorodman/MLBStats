@@ -77,6 +77,7 @@ export class PlayerComponent implements OnInit {
       const debut = new Date(this.details.pro_debut_date).getFullYear();
       this.isHitter = this.details.primary_stat_type === "hitting";
       this.fetchPlayerStats(debut, this.isHitter);
+
     });
   }
 
@@ -89,13 +90,35 @@ export class PlayerComponent implements OnInit {
         if(isHitter)
         {
             this.api.getPlayerHittingStats(this.player_id, String(year)).pipe(first()).subscribe((resp) => {
-              this.stats.push(resp.sport_hitting_tm.queryResults.row);
+              let rows = resp.sport_hitting_tm.queryResults.row;
+              if(rows)
+              {
+                // If the player played for multiple teams in a season the data is in an array
+                // This line ensures that going forward, rows is an array
+                rows = Array.isArray(rows) ? rows : [rows];
+
+                for(const row of rows)
+                {
+                  this.stats.push(row);
+                }
+              }
             });
         }
         else
         {
             this.api.getPlayerPitchingStats(this.player_id, String(year)).pipe(first()).subscribe((resp) => {
-              this.stats.push(resp.sport_pitching_tm.queryResults.row);
+              let rows = resp.sport_pitching_tm.queryResults.row;
+              if(rows)
+              {
+                // If the player played for multiple teams in a season the data is in an array
+                // This line ensures that going forward, rows is an array
+                rows = Array.isArray(rows) ? rows : [rows];
+
+                for(const row of rows)
+                {
+                  this.stats.push(row);
+                }
+              }
             });
         }
     }
