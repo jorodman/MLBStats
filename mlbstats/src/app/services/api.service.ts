@@ -25,6 +25,12 @@ export class ApiService {
     const url: string = `${this.backendurl}/fastcast`;
     return this.http.get(url); 
   }
+
+
+  searchForPlayers(input: string, active: boolean): Observable<any> {
+    let searchUrl: string = `${this.baseurl}/named.search_player_all.bam?sport_code='mlb'&active_sw='${active ? 'Y' : 'N'}'&name_part='${input}%25'`;
+    return this.http.get(searchUrl);
+  }
  
   // team_all_season.queryResults.row
   /*

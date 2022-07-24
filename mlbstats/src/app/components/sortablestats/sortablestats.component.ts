@@ -8,7 +8,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class SortablestatsComponent implements OnInit {
 
   @Input() cols!: any;
-  @Input() players!: any;
+  @Input() players!: any[];
+  @Input() isCustomSort!: boolean;
   @Output() filter!: EventEmitter<any>;
 
   constructor() { 

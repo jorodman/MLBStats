@@ -1,4 +1,4 @@
-<p-table [columns]="cols" [value]="players" responsiveLayout="scroll" [lazy]="true" (onLazyLoad)="setFilter($event)" [customSort]="true">
+<p-table [columns]="cols" [value]="players" responsiveLayout="scroll" [lazy]="isCustomSort" (onLazyLoad)="setFilter($event)" [customSort]="isCustomSort">
     <ng-template pTemplate="header" let-columns>
         <tr>
             <ng-container *ngFor="let col of columns">

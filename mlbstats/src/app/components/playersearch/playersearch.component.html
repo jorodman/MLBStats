@@ -1,0 +1,21 @@
+
+<div class="p-3 bg-dark d-flex flex-row justify-content-between w-full">
+    <p-panel>
+        <ng-template pTemplate="header">
+            <div class="flex flex-row justify-content-start align-items-center w-full">
+                <span class="p-input-icon-left pr-3">
+                    <i class="pi pi-search"></i>
+                    <input type="text" pInputText [(ngModel)]="searchval" placeholder="Player search">         
+                </span>
+                <p-checkbox name="groupname" [(ngModel)]="activeOnly" [binary]="true" label="Active players only"></p-checkbox>
+                <button pButton type="submit" class="border-none ml-auto" label="Search" icon="pi pi-search" [loading]="searching" (click)="search()">
+                </button>
+            </div>
+        </ng-template>
+
+        <div *ngIf="players">
+            <h5 class="mb-4">{{players.length}} results for '{{searchval}}'</h5>
+            <app-sortablestats [cols]="cols" [players]="players" (filter)="filter($event)" [isCustomSort]="false"></app-sortablestats>
+        </div>
+    </p-panel>
+</div>

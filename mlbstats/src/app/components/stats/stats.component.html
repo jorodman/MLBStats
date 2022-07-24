@@ -7,13 +7,13 @@
 
     <p-tabView>
         <p-tabPanel header="Hitting">
-            <app-sortablestats [cols]="hittingcols" [players]="hitters" (filter)="setHitterFilter($event)">
+            <app-sortablestats [cols]="hittingcols" [players]="hitters" (filter)="setHitterFilter($event)" [isCustomSort]="true">
 
             </app-sortablestats>
         </p-tabPanel>
 
         <p-tabPanel header="Pitching">
-            <app-sortablestats [cols]="pitchingcols" [players]="pitchers" (filter)="setPitcherFilter($event)">
+            <app-sortablestats [cols]="pitchingcols" [players]="pitchers" (filter)="setPitcherFilter($event)" [isCustomSort]="true">
 
             </app-sortablestats>
         </p-tabPanel>
