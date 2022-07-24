@@ -26,6 +26,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import {AccordionModule} from 'primeng/accordion';
 import {PanelModule} from 'primeng/panel';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import { PlayerstatsComponent } from './components/playerstats/playerstats.component';
 
 
 
@@ -38,7 +39,8 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
     StandingsComponent,
     StatsComponent,
     HomeComponent,
-    TopbarComponent
+    TopbarComponent,
+    PlayerstatsComponent
   ],
   imports: [
     AppRoutingModule,

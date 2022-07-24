@@ -1,63 +1,35 @@
-    <div class="container-fluid mb-3" *ngIf="details">
-        <div class="row" style="max-height: 100px">
-            <div class="col-12">
-                <div class="row justify-content-between">
-                    <div class="col-auto">
-                        <h1 class="py-3">{{details.name_display_first_last}}</h1>
-                    </div>
-                    <div class="col-auto align-self-end">
-                        <img *ngIf="imgSrc" [src]="imgSrc" alt="Team logo" style="height: 80px">
-                    </div>
+    <div class="flex flex-row flex-wrap justify-content-between align-items-center p-3" *ngIf="details">
+            
+            <div class="pb-3 flex flex-row justify-content-between align-items-center w-full">
+                <div class="flex">
+                    <h1 class="p-component text-4xl">{{details.name_display_first_last}}</h1>
+                </div>
+                <div class="flex">
+                    <img *ngIf="imgSrc" [src]="imgSrc" alt="Team logo" style="height: 80px">
                 </div>
             </div>
-        </div>
-            <p-accordion [multiple]="true">
-                <p-accordionTab header="Player Details" [selected]="false">
-                    <ul class="list-group">
-                        <li class="list-group-item">Position: {{details.primary_position_txt}}</li>
-                        <li class="list-group-item">Team: {{details.team_name}}</li>
-                        <li class="list-group-item">Bats: {{details.bats}}</li>
-                        <li class="list-group-item">Throws: {{details.throws}}</li>
-                        <li class="list-group-item">College: {{details.college}}</li>
-                    </ul>
-                </p-accordionTab>
-                <p-accordionTab header="Career Stats" [selected]="true">
-                        <p-table *ngIf="stats && isHitter" [columns]="hittingcols" [value]="stats" responsiveLayout="scroll">
-                            <ng-template pTemplate="header" let-columns>
-                                <tr>
-                                    <ng-container *ngFor="let col of columns">
-                                        <th>
-                                            {{col.header}}
-                                        </th>
-                                    </ng-container>
-                                </tr>
-                            </ng-template>
-                            <ng-template pTemplate="body" let-rowData let-columns="columns">
-                                <tr>
-                                    <td *ngFor="let col of columns">
-                                        <a>{{rowData[col.field]}}</a>
-                                    </td>
-                                </tr>
-                            </ng-template>
-                        </p-table>
-                        <p-table *ngIf="stats && !isHitter" [columns]="pitchingcols" [value]="stats" responsiveLayout="scroll">
-                            <ng-template pTemplate="header" let-columns>
-                                <tr>
-                                    <ng-container *ngFor="let col of columns">
-                                        <th>
-                                            {{col.header}}
-                                        </th>
-                                    </ng-container>
-                                </tr>
-                            </ng-template>
-                            <ng-template pTemplate="body" let-rowData let-columns="columns">
-                                <tr>
-                                    <td *ngFor="let col of columns">
-                                        <a>{{rowData[col.field]}}</a>
-                                    </td>
-                                </tr>
-                            </ng-template>
-                        </p-table>
-                </p-accordionTab>
-            </p-accordion>
+
+            <div class="w-full">
+                <p-accordion [multiple]="true">
+                    <p-accordionTab header="Player Details" [selected]="false">
+                        <ul class="line-height-3">
+                            <li class="text-color">Position: {{details.primary_position_txt}}</li>
+                            <li class="text-color">Team: {{details.team_name}}</li>
+                            <li class="text-color">Bats: {{details.bats}}</li>
+                            <li class="text-color">Throws: {{details.throws}}</li>
+                            <li class="text-color">College: {{details.college}}</li>
+                        </ul>
+                    </p-accordionTab>
+                    <p-accordionTab header="Career Stats" [selected]="true">
+                        <app-playerstats *ngIf="!isHitter" [cols]="pitchingcols" [stats]="stats">
+
+                        </app-playerstats>
+
+                        <app-playerstats *ngIf="isHitter" [cols]="hittingcols" [stats]="stats">
+
+                        </app-playerstats>
+                    </p-accordionTab>
+                </p-accordion>
+
+            </div>
     </div>

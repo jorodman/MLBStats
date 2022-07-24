@@ -94,11 +94,12 @@ export class PlayerComponent implements OnInit {
         }
         else
         {
-            this.api.getPlayerHittingStats(this.player_id, String(year)).pipe(first()).subscribe((resp) => {
-              this.stats.push(resp.sport_hitting_tm.queryResults.row);
+            this.api.getPlayerPitchingStats(this.player_id, String(year)).pipe(first()).subscribe((resp) => {
+              this.stats.push(resp.sport_pitching_tm.queryResults.row);
             });
         }
     }
+
   }
 
 
