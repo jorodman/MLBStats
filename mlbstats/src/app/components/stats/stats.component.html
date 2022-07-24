@@ -1,0 +1,59 @@
+
+<div class="p-3">
+
+    <div class="card-container pb-3">
+        <p-dropdown class="" [options]="years" [(ngModel)]="season" (ngModelChange)="seasonChange($event)"></p-dropdown>
+    </div>
+
+    <p-tabView>
+        <p-tabPanel header="Hitting">
+
+            <p-table *ngIf="hitters" [columns]="hittingcols" [value]="hitters" responsiveLayout="scroll" [lazy]="true" (onLazyLoad)="setHitterFilter($event)" [customSort]="true">
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <ng-container *ngFor="let col of columns">
+                            <th [pSortableColumn]="col.field">
+                                {{col.header}}
+                            </th>
+                        </ng-container>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr>
+                        <td *ngFor="let col of columns">
+                            <a *ngIf="col.field=='name_display_first_last'" [routerLink]="['/player', rowData.player_id]" class="table-link text-color">{{rowData[col.field]}}</a>
+                            <span *ngIf="col.field!='name_display_first_last'">{{rowData[col.field]}}</span>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+        </p-tabPanel>
+
+        <p-tabPanel header="Pitching">
+
+            <p-table *ngIf="pitchers" [columns]="pitchingcols" [value]="pitchers" responsiveLayout="scroll" (sortFunction)="setPitcherFilter($event)" [customSort]="true">
+                <h4 *ngIf="loadingPitchingStats">
+                    Loading pitching stats...
+                </h4>
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                        <ng-container *ngFor="let col of columns">
+                            <th [pSortableColumn]="col.field">
+                                {{col.header}}
+                            </th>
+                        </ng-container>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr>
+                        <td *ngFor="let col of columns">
+                            <a *ngIf="col.field=='name_display_first_last'" [routerLink]="['/player', rowData.player_id]" class="table-link text-color">{{rowData[col.field]}}</a>
+                            <span *ngIf="col.field!='name_display_first_last'">{{rowData[col.field]}}</span>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-tabPanel>
+    </p-tabView>
+</div>
