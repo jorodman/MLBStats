@@ -20,7 +20,7 @@ export class ApiService {
 
     if(prod)
     {
-      this.backendurl = 'http://ec2-18-218-230-112.us-east-2.compute.amazonaws.com:8000'
+      this.backendurl = 'http://3.22.56.148:8000'
     }
     else {
       this.backendurl = 'http://127.0.0.1:8000';
