@@ -3,11 +3,11 @@ import { ApiService } from '@services/api.service';
 import { first } from 'rxjs'
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-redsox',
+  templateUrl: './redsox.component.html',
+  styleUrls: ['./redsox.component.css']
 })
-export class HomeComponent implements OnInit {
+export class RedSoxComponent implements OnInit {
 
   articles: any;
   loadingArticles: boolean = true;

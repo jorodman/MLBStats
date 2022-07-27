@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { ApiService } from '@services/api.service';
 import { PlayerComponent } from '@components/player/player.component';
 import { StatsComponent } from '@components/stats/stats.component';
-import { HomeComponent } from '@components/home/home.component';
+import { RedSoxComponent } from '@components/redsox/redsox.component';
 import { TopbarComponent } from '@components/topbar/topbar.component';
 import { PlayerstatsComponent } from '@components/playerstats/playerstats.component';
 import { SortablestatsComponent } from '@components/sortablestats/sortablestats.component';
@@ -24,11 +24,11 @@ import { TabViewModule } from 'primeng/tabview';
 import { CardModule } from 'primeng/card';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
-import {AccordionModule} from 'primeng/accordion';
-import {PanelModule} from 'primeng/panel';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
-import {CheckboxModule} from 'primeng/checkbox';
-import {ProgressBarModule} from 'primeng/progressbar';
+import { AccordionModule } from 'primeng/accordion';
+import { PanelModule } from 'primeng/panel';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { CheckboxModule } from 'primeng/checkbox';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 
 @NgModule({
@@ -36,7 +36,7 @@ import {ProgressBarModule} from 'primeng/progressbar';
     AppComponent,
     PlayerComponent,
     StatsComponent,
-    HomeComponent,
+    RedSoxComponent,
     TopbarComponent,
     PlayerstatsComponent,
     SortablestatsComponent,
