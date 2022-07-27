@@ -11,7 +11,7 @@ import { ApiService } from '@services/api.service';
 export class TopbarComponent implements OnInit {
 
   items!: MenuItem[];
-  fastcastUrl!: string;
+  fastcastUrl: string = "";
 
   constructor(
     private api: ApiService
@@ -20,10 +20,6 @@ export class TopbarComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
             {
-                label:'Home',
-                routerLink: ['/home'],
-            },
-            {
                 label:'Player Search',
                 routerLink: ['/playersearch']
             },
@@ -31,11 +27,14 @@ export class TopbarComponent implements OnInit {
                 label:'Sortable Stats',
                 routerLink: ['/stats']
             },
+            {
+                label:'Red Sox',
+                routerLink: ['/redsox'],
+            },
         ];
 
-      this.api.getFastcastUrl().pipe(first()).subscribe((url: string) => {
-        console.log(url)
-        this.fastcastUrl = url;
-      });
+    this.api.getFastcastUrl().pipe(first()).subscribe((url: string) => {
+      this.fastcastUrl = url;
+    });
   }
 }

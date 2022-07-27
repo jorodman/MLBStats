@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,12 @@ export class ApiService {
   { 
     this.baseurl = 'https://lookup-service-prod.mlb.com/json';
 
-    const prod = true;
+    const prod = environment.production;
+    console.log("Running in prod: ", prod);
 
     if(prod)
     {
-      this.backendurl = 'http://3.22.56.148:8000'
+      this.backendurl = 'https://3.22.56.148:8000'
     }
     else {
       this.backendurl = 'http://127.0.0.1:8000';

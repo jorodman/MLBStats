@@ -6,12 +6,12 @@ import { PlayersearchComponent } from '@components/playersearch/playersearch.com
 import { StatsComponent } from '@components/stats/stats.component';
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
+  {path: 'redsox', component: HomeComponent},
   {path: 'player/:id', component: PlayerComponent},
   {path: 'stats', component: StatsComponent},
   {path: 'playersearch', component: PlayersearchComponent},
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
-  // {path: '**', redirectTo: '', pathMatch: 'full'}
+  {path: '', redirectTo: 'playersearch', pathMatch: 'full'},
+  {path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({
