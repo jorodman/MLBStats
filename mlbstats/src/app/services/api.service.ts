@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-// import { environment } from 'src/environments/environment';
+import { environment } from '@src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +17,9 @@ export class ApiService {
   { 
     this.baseurl = 'https://lookup-service-prod.mlb.com/json';
 
-    // const prod = environment.production;
-    // console.log("Running in prod: ", prod);
-    const prod = true;
+    const prod = environment.production;
+    console.log("Running in prod: ", prod);
+    // const prod = true;
 
     if(prod)
     {

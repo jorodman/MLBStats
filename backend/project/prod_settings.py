@@ -24,10 +24,9 @@ SECRET_KEY = os.environ.get('secret')
 
 # Production settings
 DEBUG = False
-ALLOWED_HOSTS = ["*"]
 ALLOWED_HOSTS = [
-    # '127.0.0.1',
-    # 'localhost',
+    '127.0.0.1',
+    'localhost',
     '172.31.31.228',
     '18.218.230.112',
     'ec2-18-218-230-112.us-east-2.compute.amazonaws.com',
