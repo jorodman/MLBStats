@@ -12,6 +12,7 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 prod = os.environ.get('prod')
+prod = 0
 
 if prod == '1':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'project.prod_settings')
