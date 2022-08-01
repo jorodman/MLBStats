@@ -1,7 +1,7 @@
 
 Other:
     pgrep runserver
-    cd backend & rm nohup.out
+    rm /home/ubuntu/MLBStats/backend/nohup.out
 
     pkill -9 python
 
@@ -9,9 +9,16 @@ Code Update:
     Gunicorn detects file changes. Must restart nginx
         sudo systemctl restart nginx
 
+TODO
+ls /etc/nginx/sites-available/
+sudo rm /etc/nginx/sites-available/nodomain
+
+Remove SimLink? What happens to files that were simlinks but got removed?
+Start gunicorn & nginx
+
 Nginx:
     Move files:
-        sudo cp backend/config/nginx/nginx_config /etc/nginx/sites-available/
+        sudo cp /home/ubuntu/MLBStats/backend/config/nginx/nginx_config /etc/nginx/sites-available/
     SimLink (to backend dir):
         cd /etc/nginx/sites-enabled
         sudo ln -s ../sites-available/nginx_config .
@@ -26,5 +33,4 @@ Gunicorn:
     Log:
         tail -f /var/log/gunicorn/dev.log
     Run:
-        cd backend
-        gunicorn -c config/gunicorn/dev.py
+        gunicorn -c /home/ubuntu/MLBStats/backend/config/gunicorn/dev.py
