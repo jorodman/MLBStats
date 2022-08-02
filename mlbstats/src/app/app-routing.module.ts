@@ -6,7 +6,7 @@ import { PlayersearchComponent } from '@components/playersearch/playersearch.com
 import { StatsComponent } from '@components/stats/stats.component';
 
 const routes: Routes = [
-  {path: 'redsox', component: RedSoxComponent},
+  // {path: 'redsox', component: RedSoxComponent},
   {path: 'player/:id', component: PlayerComponent},
   {path: 'stats', component: StatsComponent},
   {path: 'playersearch', component: PlayersearchComponent},

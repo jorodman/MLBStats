@@ -27,10 +27,6 @@ export class TopbarComponent implements OnInit {
                 label:'Sortable Stats',
                 routerLink: ['/stats']
             },
-            {
-                label:'Red Sox',
-                routerLink: ['/redsox'],
-            },
         ];
 
     this.api.getFastcastUrl().pipe(first()).subscribe((url: string) => {
