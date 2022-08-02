@@ -29,8 +29,8 @@ export class TopbarComponent implements OnInit {
             },
         ];
 
-    this.api.getFastcastUrl().pipe(first()).subscribe((url: string) => {
-      this.fastcastUrl = url;
-    });
+    // this.api.getFastcastUrl().pipe(first()).subscribe((url: string) => {
+    //   this.fastcastUrl = url;
+    // });
   }
 }

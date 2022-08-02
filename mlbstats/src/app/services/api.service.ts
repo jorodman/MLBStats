@@ -19,7 +19,6 @@ export class ApiService {
 
     const prod = environment.production;
     console.log("Running in prod: ", prod);
-    // const prod = true;
 
     if(prod)
     {
