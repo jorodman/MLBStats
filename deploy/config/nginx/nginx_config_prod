@@ -1,0 +1,40 @@
+# File: /etc/nginx/sites-available/nodomain
+# This file inherits from the http directive of /etc/nginx/nginx.conf
+
+# Disable emitting nginx version in the "Server" response header field
+server_tokens             off;
+
+# Use site-specific access and error logs
+access_log                /var/log/nginx/nodomain.access.log;
+error_log                 /var/log/nginx/nodomain.error.log;
+
+# Return 444 status code & close connection if no Host header present
+server {
+  listen                  80 default_server;
+  return                  444;
+}
+
+# Redirect HTTP to HTTPS
+server {
+  server_name             3.22.56.148;
+  listen                  80;
+  return                  307 https://$host$request_uri;
+}
+
+server {
+
+  # Pass on requests to Gunicorn listening at http://localhost:8000
+  location / {
+    proxy_pass            http://localhost:8000;
+    proxy_set_header      Host $host;
+    proxy_set_header      X-Forwarded-Proto $scheme;
+    proxy_set_header      X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_redirect        off;
+  }
+
+
+  listen 443 ssl;
+  ssl_certificate host.crt;
+  ssl_certificate_key host.key;
+#   include /etc/letsencrypt/options-ssl-nginx.conf;
+}
