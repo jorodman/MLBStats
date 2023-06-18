@@ -209,6 +209,14 @@ weight: "257"
     return this.http.get(url);
   }
 
+  getRandomPlayer(): Observable<any> {
+    const minId = 0;
+    const maxId = 624413;
+    const randomId = Math.floor(Math.random() * (maxId - minId + 1)) + minId;
+    let url: string = `${this.baseurl}/named.player_info.bam?sport_code='mlb'&player_id='${randomId}'`;
+    return this.http.get(url);
+  }
+
   /*
    * sport_hitting_tm.queryResults.row
   ab: "39"

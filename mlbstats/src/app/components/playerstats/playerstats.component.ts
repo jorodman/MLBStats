@@ -7,11 +7,19 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PlayerstatsComponent implements OnInit {
 
-  @Input() cols!: string[];
-  @Input() stats!: string[];
+  @Input() cols!: any[];
+  @Input() stats!: any[];
 
-  constructor() { }
+  constructor() {
+   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.stats = this.stats?.sort((seasonOne, seasonTwo) => Number(seasonOne.season) > Number(seasonTwo.season) ? 1 : -1);
+
+    // for(const season of this.stats)
+    // {
+    //   console.log(season.season);
+    // }
+  }
 
 }

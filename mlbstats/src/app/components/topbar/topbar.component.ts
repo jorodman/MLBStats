@@ -19,14 +19,22 @@ export class TopbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-            {
-                label:'Player Search',
-                routerLink: ['/playersearch']
-            },
+            // {
+            //     label:'Player Search',
+            //     routerLink: ['/playersearch']
+            // },
             {
                 label:'Sortable Stats',
                 routerLink: ['/stats']
             },
+            {
+                label:'Guess The Player',
+                routerLink: ['/guessplayer']
+            },
+            // {
+            //     label:'Daily Player',
+            //     routerLink: ['/dailyplayer']
+            // },
         ];
 
     // this.api.getFastcastUrl().pipe(first()).subscribe((url: string) => {

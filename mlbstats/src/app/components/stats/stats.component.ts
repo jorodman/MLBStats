@@ -11,7 +11,7 @@ export class StatsComponent implements OnInit {
 
   hitterFilter: string = "hr";
   pitcherFilter: string = "w";
-  season: string = "2022";
+  season: string = new Date().getFullYear().toString();
   years: number[] = [];
   hitters!: any[];
   pitchers!: any[];

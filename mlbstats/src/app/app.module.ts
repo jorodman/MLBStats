@@ -29,6 +29,7 @@ import { PanelModule } from 'primeng/panel';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { GuessPlayerComponentComponent } from './components/guess-player-component/guess-player-component.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
     PlayerstatsComponent,
     SortablestatsComponent,
     PlayersearchComponent,
+    GuessPlayerComponentComponent,
   ],
   imports: [
     AppRoutingModule,
