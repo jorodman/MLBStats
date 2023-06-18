@@ -9,3 +9,9 @@ API: https://appac.github.io/mlb-data-api-docs/
 Hosted on an S3 bucket. Uses a cloudfront distribution to serve the static files over HTTPS and to interface with Angular routing
 
 Developed with Angular2 and Primefaces PrimeNG (an angular UI library) 
+
+Deployment:
+- ng build
+- Delete files from S3 bucket
+- create invalidation on cloudfront to clear cache (/*)
+- Upload files to S3 bucket
